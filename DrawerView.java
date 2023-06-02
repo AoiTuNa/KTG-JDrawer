@@ -56,7 +56,6 @@ public class DrawerView extends JPanel implements MouseListener, MouseMotionList
         }else if(whatToDraw == DRAW_LINE){
             cuurrentFigure = new Line(e.getX(),e.getY());
         }
-        figures.add(cuurrentFigure);
         //polymorphic collection object
         //polymorphic container
     }
@@ -65,6 +64,12 @@ public class DrawerView extends JPanel implements MouseListener, MouseMotionList
         Graphics g = getGraphics(); 
         cuurrentFigure.setXY2(e.getX(),e.getY());
         cuurrentFigure.draw(g);
+        figures.add(cuurrentFigure);
+        cuurrentFigure = null;
+    }
+    public void addFigure(Figure newFigure){
+        figures.add(newFigure);
+        repaint();
     }
     @Override
     public void mouseEntered(MouseEvent e) {

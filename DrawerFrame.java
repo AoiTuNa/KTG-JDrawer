@@ -74,6 +74,24 @@ public class DrawerFrame extends JFrame{
         figureMenu.add(figureLine);
         figureLine.addActionListener( (e) -> canvus.setWhatToDraw(DrawerView.DRAW_LINE));
 
+        JMenu toolMenu = new JMenu("도구 (T)");
+        menus.add(toolMenu);
+
+        JMenuItem modalTool = new JMenuItem("Modal (M)");
+        toolMenu.add(modalTool);
+        modalTool.addActionListener(  (e) ->  {
+                    FigureDialog dialog = new FigureDialog("Figure Dialog",canvus);
+                    dialog.setModal(true);
+                    dialog.setVisible(true);
+        });
+        JMenuItem modalessTool = new JMenuItem("Modaless (S)");
+        toolMenu.add(modalessTool);
+        modalessTool.addActionListener(  (e) ->  {
+                    FigureDialog dialog = new FigureDialog("Figure Dialog",canvus);
+                    dialog.setModal(false);
+                    dialog.setVisible(true);
+            
+        });
 
 
         JMenu helpMenu = new JMenu("도움말 (H)");
