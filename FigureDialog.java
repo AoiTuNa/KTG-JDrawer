@@ -107,9 +107,9 @@ class FigureDialog extends JDialog {
             String selection = (String)box.getSelectedItem();
             try{
                 x1 = Integer.parseInt(x1TextField.getText());
-                x2 = Integer.parseInt(x1TextField.getText());
-                y1 = Integer.parseInt(x1TextField.getText());
-                y2 = Integer.parseInt(x1TextField.getText());
+                x2 = Integer.parseInt(x2TextField.getText());
+                y1 = Integer.parseInt(y1TextField.getText());
+                y2 = Integer.parseInt(y2TextField.getText());
             }
             catch (Exception ex){
                 System.out.println("Invalid text filed! Try Again!");
@@ -117,9 +117,11 @@ class FigureDialog extends JDialog {
             }
             Figure newFigure = null;
             if (selection.equals("Box")){
-                newFigure = new Box(x1,x2,y1,y2);
+                newFigure = new Box(new Color(0, 0, 0),x1,y1,x2,y2);
+                newFigure.setPopup(view.boxPopup);
             }else if(selection.equals("Line")){
-                newFigure = new Line(x1,x2,y1,y2);
+                newFigure = new Line(Color.black,x1,y1,x2,y2);
+                newFigure.setPopup(view.linePopup);
             }
             view.addFigure(newFigure);
             x1TextField.setText("0");
