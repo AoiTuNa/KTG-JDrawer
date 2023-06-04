@@ -35,7 +35,7 @@ class FigureDialog extends JDialog {
         JTextField x2TextField;
         JTextField y1TextField;
         JTextField y2TextField;
-        String[] figures = {"Box","Line"};
+        String[] figures = {"Box","Line", "Circle"};
         JComboBox<String> box;
         JDialog dialog;
         DrawerView view;
@@ -116,12 +116,19 @@ class FigureDialog extends JDialog {
                 return;
             }
             Figure newFigure = null;
-            if (selection.equals("Box")){
+            if (selection.equals("Point")){
+                newFigure = new Point(new Color(0, 0, 0),x1,y1);
+                newFigure.setPopup(view.PointPopup());
+            }
+            else if (selection.equals("Box")){
                 newFigure = new Box(new Color(0, 0, 0),x1,y1,x2,y2);
-                newFigure.setPopup(view.boxPopup);
+                newFigure.setPopup(view.boxPopup());
             }else if(selection.equals("Line")){
                 newFigure = new Line(Color.black,x1,y1,x2,y2);
-                newFigure.setPopup(view.linePopup);
+                newFigure.setPopup(view.linePopup());
+            }else if(selection.equals("Circle")){
+                newFigure = new Circle(Color.black,x1,y1,x2,y2);
+                newFigure.setPopup(view.circlePopup());
             }
             view.addFigure(newFigure);
             x1TextField.setText("0");

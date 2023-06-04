@@ -66,6 +66,11 @@ public class DrawerFrame extends JFrame{
         });
         JMenu figureMenu = new JMenu("그림 (F)");
         menus.add(figureMenu);
+
+        JMenuItem figurePoint = new JMenuItem("Point (P)");
+        figureMenu.add(figurePoint);
+        figurePoint.addActionListener( (e) -> canvus.setWhatToDraw(DrawerView.DRAW_POINT));
+
         JMenuItem figureBox = new JMenuItem("Box (B)");
         figureMenu.add(figureBox);
         figureBox.addActionListener( (e) -> canvus.setWhatToDraw(DrawerView.DRAW_BOX));
@@ -73,6 +78,10 @@ public class DrawerFrame extends JFrame{
         JMenuItem figureLine = new JMenuItem("Line (L)");
         figureMenu.add(figureLine);
         figureLine.addActionListener( (e) -> canvus.setWhatToDraw(DrawerView.DRAW_LINE));
+
+        JMenuItem figureCircle = new JMenuItem("Circle (C)");
+        figureMenu.add(figureCircle);
+        figureLine.addActionListener( (e) -> canvus.setWhatToDraw(DrawerView.DRAW_CIRCLE));
 
         JMenu toolMenu = new JMenu("도구 (T)");
         menus.add(toolMenu);

@@ -21,6 +21,9 @@ abstract public class Figure {
         region = null;
         popup = null;
     }
+    void setFill() {
+        //hook fuction
+    }
     void setColor(Color color){
         this.color = color;
     }

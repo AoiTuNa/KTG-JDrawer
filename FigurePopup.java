@@ -44,10 +44,18 @@ public class FigurePopup extends Popup {
          colorMenu.add(blueItem);
 
         JMenuItem chooserItem = new JMenuItem("Chooser");
-        blueItem.addActionListener((evt) ->{
+        chooserItem.addActionListener((evt) ->{
             view.showColorChooser();
         });
         colorMenu.add(chooserItem);
+
+        if (fillFlag == true){
+         JMenuItem fillITem = new JMenuItem("fill");
+         fillITem.addActionListener((evt) ->{
+            view.fillFigure();
+        });
+        popupPter.add(fillITem);
+        }
 
     }   
        
